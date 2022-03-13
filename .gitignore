@@ -107,3 +107,4 @@ target/
 app/.svelte-kit/
 test-ledger/
 app/build/
+app/.DS_Store
