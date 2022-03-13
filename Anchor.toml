@@ -1,0 +1,17 @@
+[features]
+seeds = false
+[programs.localnet]
+solinvoice = "56Ye6uGJgGvk7KhWi12Z38aRMkeBEsxeAsVW9DDeXfnL"
+
+[programs.devnet]
+solinvoice = "56Ye6uGJgGvk7KhWi12Z38aRMkeBEsxeAsVW9DDeXfnL"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/martinvd/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"

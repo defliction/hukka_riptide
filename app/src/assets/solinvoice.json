@@ -1,0 +1,343 @@
+{
+  "version": "0.1.0",
+  "name": "solinvoice",
+  "instructions": [
+    {
+      "name": "sendInvoice",
+      "accounts": [
+        {
+          "name": "invoice",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "author",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "pref",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "string"
+        },
+        {
+          "name": "quantities",
+          "type": "string"
+        },
+        {
+          "name": "buyer",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "sendBillable",
+      "accounts": [
+        {
+          "name": "billable",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "author",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "desc",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "sendSettings",
+      "accounts": [
+        {
+          "name": "settings",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "author",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "n",
+          "type": "string"
+        },
+        {
+          "name": "addr",
+          "type": "string"
+        },
+        {
+          "name": "bCurrency",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "updateInvoice",
+      "accounts": [
+        {
+          "name": "invoice",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "desc",
+          "type": "string"
+        },
+        {
+          "name": "date",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "string"
+        },
+        {
+          "name": "quantities",
+          "type": "string"
+        },
+        {
+          "name": "buyer",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "updateBillable",
+      "accounts": [
+        {
+          "name": "billable",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "desc",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "updateSettings",
+      "accounts": [
+        {
+          "name": "settings",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "n",
+          "type": "string"
+        },
+        {
+          "name": "addr",
+          "type": "string"
+        },
+        {
+          "name": "bCurrency",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "deleteInvoice",
+      "accounts": [
+        {
+          "name": "invoice",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "deleteBillable",
+      "accounts": [
+        {
+          "name": "billable",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "deleteSettings",
+      "accounts": [
+        {
+          "name": "settings",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "author",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Invoice",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "publicKey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "paymentref",
+            "type": "string"
+          },
+          {
+            "name": "items",
+            "type": "string"
+          },
+          {
+            "name": "quantities",
+            "type": "string"
+          },
+          {
+            "name": "addressee",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Billable",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "publicKey"
+          },
+          {
+            "name": "key",
+            "type": "i16"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "type": "f32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Settings",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "publicKey"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "type": "string"
+          },
+          {
+            "name": "baseCurrency",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "DescTooLong",
+      "msg": "The provided desc should be 32/60 characters long maximum."
+    }
+  ],
+  "metadata": {
+    "address": "56Ye6uGJgGvk7KhWi12Z38aRMkeBEsxeAsVW9DDeXfnL"
+  }
+}
