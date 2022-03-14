@@ -35,9 +35,9 @@
     let recipient;
     let amount;
     let reference;
-    const label = 'solinvoice.xyz - Cat store';
-    const message = 'Jungle Cats store - your order - #001234';
-    const memo = 'JC#4098';
+    const label = 'hukka.xyz';
+    const message = 'marked for future use';
+    const memo = 'marked for future use';
     const splToken = new PublicKey('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v');
     let qrCode;
     let url;
